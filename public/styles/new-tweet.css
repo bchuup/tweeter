@@ -22,3 +22,8 @@
 .counter{
   float: right;
 }
+
+.red {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: red;
+}
