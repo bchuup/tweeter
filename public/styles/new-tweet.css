@@ -1,0 +1,24 @@
+/*header*/
+.new-tweet h2{
+  border-bottom-color: #244751;
+  border-bottom-width: 1px;
+  border-bottom-style: groove;
+}
+
+.new-tweet {
+  background-color: #eee;
+  margin: 0em 2em 0em 2em;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #244751;
+}
+
+/*text area for tweet*/
+.new-tweet form textarea {
+  padding:5px 5px 5px 5px;
+  width: 100%;
+}
+
+.counter{
+  float: right;
+}
