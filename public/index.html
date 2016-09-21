@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet-feed.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/font-awesome-4.6.3/css/font-awesome.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -20,48 +21,43 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/submitTweetAjax.js"></script>
+
 
   </head>
 
   <body>
-
-    <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
     </nav>
-
-    <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form METHOD=POST action="/tweets/" >
+        <form id="formTweet" METHOD=POST action="/tweets/" >
           <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
+          <input id="submitTweet" type="submit" value="Tweet">
           <span class="counter">140</span>
         </form>
       </section>
       <section id="feed-section">
-
-        <article class="tweet">
-
+<!--         <article class="tweet">
           <header>
-            <img class=avatar src="/images/smile.png">
-            <h2 class=name> NAME </h2>
-            <p class=handle > twitter handle </p>
+            <img class="avatar" src="/images/smile.png">
+            <h2 class="header-name"> NAME </h2>
+            <p class="handle"> twitter handle </p>
           </header>
-
-          <p class=message> A PLACE FOR TWEETS </p>
-
-
+          <p class="message"> A PLACE FOR TWEETS </p>
           <footer>
             <p> 10 days ago </p>
+            <div class="icon">
+              <i class="fa fa-flag" aria-hidden="true"></i>
+              <i class="fa fa-retweet" aria-hidden="true"></i>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            </div>
           </footer>
-
-        </article>
-
+        </article> -->
       </section>
-
     </main>
   </body>
 </html>
