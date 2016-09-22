@@ -21,40 +21,51 @@ function createTweetElement(objectData){
   return $html
 }
 
-function renderTweets(tweets) {
-  tweets.forEach(tweet => {
-    $('#feed-section').append(createTweetElement(tweet))
-  })
+
+//node.html will replace all code between the DOM nodes specified with the HTML created in createTweetElement
+function renderTweets($node, tweets) {
+  $node.html(tweets.map(tweet => createTweetElement(tweet)))
 }
+
 
 
 $(function() {
 
-  let target = $('#formTweet')
-    target.submit(function (event) {
+  let $target = $('#formTweet')
+  let $feedSection = $('#feed-section')
+
+  $target.submit(function(event) {
     event.preventDefault();
-    let serArr = $(this).serializeArray()
+
+    let serArr = $target.serializeArray()
     let formObj = {}
-    serArr.forEach(function(input){
+
+    serArr.forEach(function(input) {
       formObj[input.name] = input.value
     })
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data : formObj,
-      success: function (response) {
-        console.log('Success: ', response);
-      }
-    });
-  });
+
+    if (formObj.text.length < 1) {
+      alert("Tweet something!")
+    } else if (formObj.text.length > 140){
+      alert("Yada yada yada, your tweet is too long")
+    } else {
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: formObj,
+        success: function (response) {
+          loadTweets();
+        }
+      })
+    }
+  })
 
   const loadTweets = () => {
     $.ajax({
       url: '/tweets',
       method: 'GET',
       success: function (response) {
-        console.log('Success: ', response);
-        renderTweets(response)
+        renderTweets($feedSection, response)
       }
     });
   }
