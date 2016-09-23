@@ -1,0 +1,85 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+
+#feed-section {
+  background-color: white;
+  margin: 1em 2em 1em 2em;
+  border-radius: 10px;
+  border: 1px solid #244751;
+}
+
+article.tweet {
+  opacity: 0.3;
+  margin: 10px;
+  border: 0.5px solid #244751;
+  border-radius: 10px;
+}
+
+article.tweet:hover  {
+  opacity: 1;
+}
+
+article.tweet header {
+  background-color: #eee;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+}
+
+.header-name {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+}
+
+header p.handle {
+  float: right;
+  display: block;
+}
+
+article.tweet img.avatar {
+  height: 50px;
+  width: auto;
+  border: 1px solid #244751;
+  border-radius: 5px;
+  vertical-align: top
+}
+
+
+article.tweet p.message {
+  padding: 10px;
+  margin: 20px;
+  word-wrap: break-word;
+}
+
+article.tweet footer {
+  /*display: inline-block;*/
+  padding-left: 10px;
+  padding-top: 0px;
+  border-top-color: #244751;
+  border-top-width: 1px;
+  border-top-style: groove;
+}
+footer p {
+  display: inline-block;
+}
+footer div{
+  padding: 15px;
+}
+div.icon {
+  opacity: 0.5;
+  display: block;
+  float: right;
+}
+
+div.icon:hover {
+  opacity: 1;
+  display: block;
+  float: right;
+}
+
+
+
