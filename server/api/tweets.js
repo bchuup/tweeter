@@ -9,7 +9,6 @@ module.exports = function(db) {
   tweets.get("/", function(req, res) {
     let tweets = db.collection("tweets").find().sort({"created_at": -1});
     tweets.toArray((err, results) => {
-      // simulate delay
       setTimeout(() => {
         return res.json(results);
       }, 300);
@@ -17,7 +16,6 @@ module.exports = function(db) {
   });
 
   tweets.post("/", function(req, res) {
-    // console.log("New Tweet, Body:", req.body);
     if (!req.body.text) {
       res.status(400);
       return res.send("{'error': 'invalid request'}\n");
@@ -35,7 +33,5 @@ module.exports = function(db) {
       res.json(result);
     });
   });
-
   return tweets;
-
 }

@@ -1,6 +1,22 @@
 "use strict"
 
+
+function tweetTime(created){
+  let timeAgo
+  let date = new Date();
+  let seconds = date.getTime() - created
+  if (seconds < 86400000) {
+    let time = Math.round(seconds/3600000)
+    timeAgo = `${time} hrs ago`
+  } else {
+    let time = Math.round(seconds/86400000)
+    timeAgo = `${time} days ago`
+  }
+  return timeAgo
+}
+
 function createTweetElement(tweetsJSON){
+  let created = tweetTime(tweetsJSON.created_at)
   const $article = $("<article>");
   let $html = $article.addClass("tweet").append(
     `<header>
@@ -10,7 +26,7 @@ function createTweetElement(tweetsJSON){
     </header>
     <p class="message"> ${tweetsJSON.content.text} </p>
     <footer>
-      <p> ${tweetsJSON.created_at} </p>
+      <p> ${created} </p>
       <div class="icon">
         <i class="fa fa-flag" aria-hidden="true"></i>
         <i class="fa fa-retweet" aria-hidden="true"></i>
@@ -20,7 +36,6 @@ function createTweetElement(tweetsJSON){
   );
   return $html;
 }
-
 
 function renderTweets($node, tweets) {
   $node.html(tweets.map(tweet => createTweetElement(tweet)));
@@ -52,8 +67,6 @@ $(function() {
     let serArr = $target.serializeArray();
     let formObj = {};
 
-
-
     event.preventDefault();
 
     serArr.forEach(function(input) {
@@ -77,8 +90,6 @@ $(function() {
       })
     }
   })
-
-
 });
 
 

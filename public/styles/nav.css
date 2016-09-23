@@ -22,3 +22,21 @@
   line-height: 80px;
   font-size: 200%;
 }
+
+#nav-bar li {
+  display: inline;
+  margin: auto;
+}
+
+#nav-bar li button {
+  float: right;
+  margin: 25px;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #e8fdff;
+}
+#nav-bar li button:hover {
+  background-color: #fff;
+  font-size: 105%;
+}
